@@ -28,7 +28,7 @@
       box-shadow: 0 4px 24px rgba(60,40,10,0.13);
     }
 
-    /* HEADER */
+    /* ── HEADER ── */
     header {
       background-color: #3b2f1e;
       color: #f5f0e8;
@@ -73,7 +73,7 @@
       color: #d6edb8;
     }
 
-    /* HERO GRID 2/3 + 1/3 */
+    /* ── HERO GRID 2/3 + 1/3 ── */
     .hero-grid {
       display: grid;
       grid-template-columns: 2fr 1fr;
@@ -94,10 +94,10 @@
       display: block;
     }
 
-    /* INHALT */
+    /* ── INHALT ── */
     .content { padding: 40px 48px; }
 
-    /* SCHNELLÜBERSICHT */
+    /* ── SCHNELLÜBERSICHT ── */
     .overview-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -112,8 +112,8 @@
       border-bottom: 1px solid #e8dfc8;
       border-right: 1px solid #e8dfc8;
     }
-    .overview-grid .item:nth-child(even)       { border-right: none; }
-    .overview-grid .item:nth-last-child(-n+2)  { border-bottom: none; }
+    .overview-grid .item:nth-child(even)      { border-right: none; }
+    .overview-grid .item:nth-last-child(-n+2) { border-bottom: none; }
     .overview-grid .item .key {
       font-size: 10px;
       letter-spacing: 2px;
@@ -128,7 +128,7 @@
       font-weight: 400;
     }
 
-    /* ABSCHNITTE */
+    /* ── ABSCHNITTE ── */
     section { margin-bottom: 40px; }
     section h2 {
       font-family: 'Playfair Display', serif;
@@ -146,7 +146,7 @@
     }
     section p { margin-bottom: 12px; color: #4a3a25; }
 
-    /* LISTEN */
+    /* ── LISTEN ── */
     ul { list-style: none; padding: 0; margin-bottom: 12px; }
     ul li {
       padding: 5px 0 5px 22px;
@@ -166,7 +166,7 @@
     ol { padding-left: 20px; margin-bottom: 12px; }
     ol li { padding: 4px 0; color: #4a3a25; }
 
-    /* HIGHLIGHT-BOX */
+    /* ── HIGHLIGHT-BOX ── */
     .highlight-box {
       background-color: #eef4e6;
       border-left: 4px solid #7a9e5f;
@@ -178,7 +178,7 @@
     .highlight-box ul li { border-bottom: 1px dotted #c8ddb0; }
     .highlight-box ul li::before { color: #4a6e30; }
 
-    /* TABELLE */
+    /* ── TABELLE ── */
     table {
       width: 100%;
       border-collapse: collapse;
@@ -209,7 +209,7 @@
       white-space: nowrap;
     }
 
-    /* FOTO-GALERIE */
+    /* ── FOTO-GALERIE ── */
     .photo-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -222,7 +222,6 @@
       border-radius: 3px;
       height: 180px;
       overflow: hidden;
-      position: relative;
     }
     .photo-item img {
       width: 100%;
@@ -230,30 +229,8 @@
       object-fit: cover;
       display: block;
     }
-    /* Beschriftung nur sichtbar wenn KEIN Bild geladen */
-    .photo-item .caption {
-      display: none;
-    }
-    .photo-item img[src=""],
-    .photo-item img:not([src]) {
-      display: none;
-    }
-    /* Fallback-Label für leere Slots (kein Bild) */
-    .photo-item.no-image {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-    .photo-item.no-image .caption {
-      display: block;
-      font-size: 11px;
-      color: #7a6a50;
-      font-style: italic;
-      padding: 12px;
-    }
 
-    /* LAGE */
+    /* ── LAGE ── */
     .lage-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -275,7 +252,7 @@
     .lage-item .dest { font-size: 13px; font-weight: 700; margin: 4px 0; }
     .lage-item .desc { font-size: 11px; color: #c8b99a; }
 
-    /* ZUSTANDSHINWEISE */
+    /* ── ZUSTANDSHINWEISE ── */
     .hinweis-box {
       background-color: #fdf6ec;
       border: 1px solid #e0c898;
@@ -285,7 +262,7 @@
     .hinweis-box ul li::before { content: '▸'; color: #c8962a; }
     .hinweis-box ul li { border-bottom: 1px dotted #e8d8b0; }
 
-    /* KONTAKT */
+    /* ── KONTAKT ── */
     .kontakt {
       background-color: #3b2f1e;
       color: #f5f0e8;
@@ -314,6 +291,11 @@
       flex-wrap: wrap;
     }
     .kontakt .contact-item { font-size: 15px; color: #e8dfc8; }
+    .kontakt .contact-item a {
+      color: #e8dfc8;
+      text-decoration: none;
+    }
+    .kontakt .contact-item a:hover { color: #a8c07a; }
     .kontakt .contact-item span { color: #a8c07a; margin-right: 6px; }
     .kontakt .privat {
       display: inline-block;
@@ -326,18 +308,207 @@
       text-transform: uppercase;
     }
 
-    /* TRENNLINIE */
+    /* ── TRENNLINIE ── */
     .divider {
       border: none;
       border-top: 1px solid #d6c9a8;
       margin: 0 48px;
     }
 
-    /* DRUCK */
+    /* ── DRUCK ── */
     @media print {
       body { background: white; }
-      .page { box-shadow: none; border: none; margin: 0; max-width: 100%; }
+      .page {
+        box-shadow: none;
+        border: none;
+        margin: 0;
+        max-width: 100%;
+      }
       .hero-item { height: 220px; }
+      .kontakt a { color: #e8dfc8 !important; }
+    }
+
+    /* ════════════════════════════════════════
+       MOBILE – max-width 600px
+    ════════════════════════════════════════ */
+    @media (max-width: 600px) {
+
+      body { font-size: 14px; line-height: 1.6; }
+
+      .page {
+        margin: 0;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+      }
+
+      /* Header */
+      header {
+        padding: 24px 16px 20px;
+      }
+      header h1 {
+        font-size: 22px;
+      }
+      header .subtitle {
+        font-size: 12px;
+      }
+      header .price-bar {
+        font-size: 18px;
+        padding: 8px 16px;
+        display: block;
+        text-align: center;
+      }
+      header .price-bar span {
+        display: block;
+        margin-left: 0;
+        margin-top: 4px;
+        font-size: 11px;
+      }
+
+      /* Hero: übereinander statt nebeneinander */
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3px;
+      }
+      .hero-item {
+        height: 220px;
+      }
+      /* Eingang-Bild auf Mobile ausblenden (spart Platz) */
+      .hero-item:last-child {
+        height: 160px;
+      }
+
+      /* Inhalt */
+      .content {
+        padding: 20px 16px;
+      }
+
+      /* Schnellübersicht: 1 Spalte auf Mobile */
+      .overview-grid {
+        grid-template-columns: 1fr;
+        margin-bottom: 24px;
+      }
+      .overview-grid .item {
+        border-right: none;
+      }
+      .overview-grid .item:nth-last-child(-n+2) {
+        border-bottom: 1px solid #e8dfc8;
+      }
+      .overview-grid .item:last-child {
+        border-bottom: none;
+      }
+
+      /* Überschriften */
+      section h2 { font-size: 18px; }
+      section h3 { font-size: 15px; }
+      section { margin-bottom: 28px; }
+
+      /* Foto-Grid: 1 Spalte auf Mobile */
+      .photo-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .photo-item {
+        height: 200px;
+      }
+
+      /* Tabelle scrollbar auf Mobile */
+      .table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      table {
+        min-width: 400px;
+        font-size: 13px;
+      }
+      table thead th,
+      table tbody td {
+        padding: 8px 10px;
+      }
+
+      /* Lage: 1 Spalte auf Mobile */
+      .lage-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .lage-item {
+        padding: 14px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        text-align: left;
+      }
+      .lage-item .dist {
+        font-size: 28px;
+        min-width: 60px;
+      }
+
+      /* Highlight Box */
+      .highlight-box {
+        padding: 14px 16px;
+      }
+
+      /* Hinweis Box */
+      .hinweis-box {
+        padding: 14px 16px;
+      }
+
+      /* Trennlinie */
+      .divider {
+        margin: 0 16px;
+      }
+
+      /* Kontakt */
+      .kontakt {
+        padding: 28px 16px;
+      }
+      .kontakt h2 { font-size: 20px; }
+      .kontakt .contact-items {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+      }
+      .kontakt .contact-item {
+        font-size: 16px;
+      }
+
+      /* Anruf-Button auf Mobile */
+      .kontakt .tel-link {
+        display: inline-block;
+        background-color: #7a9e5f;
+        color: #fff !important;
+        padding: 12px 32px;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+        margin-top: 8px;
+      }
+
+    }
+
+    /* ════════════════════════════════════════
+       TABLET – 601px bis 860px
+    ════════════════════════════════════════ */
+    @media (min-width: 601px) and (max-width: 860px) {
+
+      .page {
+        margin: 0;
+        border-radius: 0;
+      }
+
+      header { padding: 32px 24px 24px; }
+      header h1 { font-size: 26px; }
+
+      .content { padding: 28px 24px; }
+
+      .hero-item { height: 260px; }
+
+      .photo-grid { grid-template-columns: 1fr 1fr; }
+      .photo-item { height: 160px; }
+
+      .lage-grid { grid-template-columns: repeat(3, 1fr); }
+
     }
 
   </style>
@@ -355,7 +526,7 @@
     </div>
   </header>
 
-  <!-- HERO-GRID: 2/3 links + 1/3 rechts -->
+  <!-- HERO GRID -->
   <div class="hero-grid">
     <div class="hero-item">
       <img src="foto_frontansicht.jpg" alt="Frontansicht Straßenseite">
@@ -449,7 +620,7 @@
           <img src="foto_zimmer_dg.jpg" alt="Zimmer Dachgeschoss">
         </div>
         <div class="photo-item">
-          <img src="foto_sofaecke.jpg" alt="Sofaecke in der großen Wohnküche">
+          <img src="foto_sofaecke.jpg" alt="Sofaecke in der Wohnküche">
         </div>
       </div>
     </section>
@@ -561,36 +732,38 @@
     <!-- MODERNISIERUNG -->
     <section>
       <h2>Modernisierungshistorie</h2>
-      <table>
-        <thead>
-          <tr><th>Jahr</th><th>Maßnahme</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>1936</td>
-              <td>Bau des Haupthauses, Kachelofen eingebaut</td></tr>
-          <tr><td>1993</td>
-              <td>Bad, Zählerschrank, Fenster EG erneuert</td></tr>
-          <tr><td>1996</td>
-              <td>Neue Dacheindeckung – noch heute sehr guter Zustand</td></tr>
-          <tr><td>1997</td>
-              <td>Ölheizung eingebaut</td></tr>
-          <tr><td>2000</td>
-              <td>Hofseitige Fassade verputzt und gestrichen,
-                  Sockel verfugt</td></tr>
-          <tr><td>2001</td>
-              <td>Straßenseitige Fenster erneuert</td></tr>
-          <tr><td>2006</td>
-              <td>Fassade neu gestrichen</td></tr>
-          <tr><td>2011</td>
-              <td>Blitzschutzanlage (Haus + Torhaus)</td></tr>
-          <tr><td>2022</td>
-              <td>Elektrik komplett, Dielen, Reinkalkputz,
-                  Sumpfkalkfarbe, DG-Dämmung:
-                  Perlite/Mineralwolle, EG-Dämmung-Nordwand: Kalziumsilikat</td></tr>
-          <tr><td>2024</td>
-              <td>Holzvergaser Fröling S4 Turbo installiert</td></tr>
-        </tbody>
-      </table>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Jahr</th><th>Maßnahme</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1936</td>
+                <td>Bau des Haupthauses, Kachelofen eingebaut</td></tr>
+            <tr><td>1993</td>
+                <td>Bad, Zählerschrank, Fenster EG erneuert</td></tr>
+            <tr><td>1996</td>
+                <td>Neue Dacheindeckung – noch heute sehr guter Zustand</td></tr>
+            <tr><td>1997</td>
+                <td>Ölheizung eingebaut</td></tr>
+            <tr><td>2000</td>
+                <td>Hofseitige Fassade verputzt und gestrichen,
+                    Sockel verfugt</td></tr>
+            <tr><td>2001</td>
+                <td>Straßenseitige Fenster erneuert</td></tr>
+            <tr><td>2006</td>
+                <td>Fassade neu gestrichen</td></tr>
+            <tr><td>2011</td>
+                <td>Blitzschutzanlage (Haus + Torhaus)</td></tr>
+            <tr><td>2022</td>
+                <td>Elektrik komplett, Dielen, Reinkalkputz,
+                    Sumpfkalkfarbe, Osmo-Öl, DG-Dämmung
+                    (Perlite/Mineralwolle), Nordwand Kalziumsilikat</td></tr>
+            <tr><td>2024</td>
+                <td>Holzvergaser Fröling S4 Turbo installiert</td></tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <hr class="divider">
@@ -665,8 +838,9 @@
 
     <hr class="divider">
 
-<!--     
-    <section>
+    <!-- ZUSTANDSHINWEISE -->
+	
+<!--     <section>
       <h2>Zustandshinweise</h2>
       <div class="hinweis-box">
         <ul>
@@ -694,15 +868,26 @@
     <div class="name">Familie Schwarzbach</div>
     <div class="contact-items">
       <div class="contact-item">
-        <span>📧</span>haus.herbersdorf@freenet.de
+        <span>📧</span>
+        <a href="mailto:haus.herbersdorf@freenet.de">
+          haus.herbersdorf@freenet.de
+        </a>
       </div>
       <div class="contact-item">
-        <span>📱</span>0151 61 44 53 09
+        <span>📱</span>
+        <a href="tel:+4915161445309">0151 61 44 53 09</a>
       </div>
     </div>
+    <!-- Anruf-Button nur auf Mobile sichtbar -->
+    <a href="tel:+4915161445309" class="tel-link"
+       style="display:none; margin-bottom:16px;">
+      📞 Jetzt anrufen
+    </a>
+    <script>
+      // Anruf-Button nur auf Mobile einblenden
+      if (window.innerWidth <= 600) {
+        document.querySelector('.tel-link').style.display = 'inline-block';
+      }
+    </script>
+    <br><br>
     <div class="privat">Privatverkauf · Provisionsfrei</div>
-  </div>
-
-</div>
-</body>
-</html>
