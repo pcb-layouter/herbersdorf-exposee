@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exposé – Vierseitenhof Herbersdorf</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #f5f0e8;
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      color: #3b2f1e;
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 40px auto;
+      background-color: #fffdf7;
+      border: 1px solid #d6c9a8;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(60,40,10,0.13);
+    }
+
+    /* HEADER */
+    header {
+      background-color: #3b2f1e;
+      color: #f5f0e8;
+      padding: 48px 48px 36px;
+      border-bottom: 5px solid #7a9e5f;
+    }
+    header .label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #a8c07a;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #f5f0e8;
+      margin-bottom: 10px;
+    }
+    header .subtitle {
+      font-size: 14px;
+      color: #c8b99a;
+      margin-bottom: 20px;
+    }
+    header .price-bar {
+      display: inline-block;
+      background-color: #7a9e5f;
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      padding: 8px 24px;
+      border-radius: 3px;
+      margin-top: 8px;
+    }
+    header .price-bar span {
+      font-size: 13px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      margin-left: 10px;
+      color: #d6edb8;
+    }
+
+    /* HERO GRID 2/3 + 1/3 */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 4px;
+      background-color: #3b2f1e;
+      border-bottom: 4px solid #7a9e5f;
+    }
+    .hero-item {
+      position: relative;
+      background-color: #d6c9a8;
+      overflow: hidden;
+      height: 320px;
+    }
+    .hero-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* INHALT */
+    .content { padding: 40px 48px; }
+
+    /* SCHNELLÜBERSICHT */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid #d6c9a8;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+    .overview-grid .item {
+      padding: 12px 16px;
+      border-bottom: 1px solid #e8dfc8;
+      border-right: 1px solid #e8dfc8;
+    }
+    .overview-grid .item:nth-child(even)       { border-right: none; }
+    .overview-grid .item:nth-last-child(-n+2)  { border-bottom: none; }
+    .overview-grid .item .key {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #7a9e5f;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .overview-grid .item .val {
+      font-size: 14px;
+      color: #3b2f1e;
+      font-weight: 400;
+    }
+
+    /* ABSCHNITTE */
+    section { margin-bottom: 40px; }
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: #3b2f1e;
+      border-bottom: 2px solid #7a9e5f;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+    section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      color: #5a4a32;
+      margin: 20px 0 10px;
+    }
+    section p { margin-bottom: 12px; color: #4a3a25; }
+
+    /* LISTEN */
+    ul { list-style: none; padding: 0; margin-bottom: 12px; }
+    ul li {
+      padding: 5px 0 5px 22px;
+      position: relative;
+      color: #4a3a25;
+      border-bottom: 1px dotted #e8dfc8;
+    }
+    ul li:last-child { border-bottom: none; }
+    ul li::before {
+      content: '◆';
+      position: absolute;
+      left: 0;
+      color: #7a9e5f;
+      font-size: 9px;
+      top: 8px;
+    }
+    ol { padding-left: 20px; margin-bottom: 12px; }
+    ol li { padding: 4px 0; color: #4a3a25; }
+
+    /* HIGHLIGHT-BOX */
+    .highlight-box {
+      background-color: #eef4e6;
+      border-left: 4px solid #7a9e5f;
+      border-radius: 0 4px 4px 0;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+    .highlight-box h3 { margin-top: 0; color: #4a6e30; }
+    .highlight-box ul li { border-bottom: 1px dotted #c8ddb0; }
+    .highlight-box ul li::before { color: #4a6e30; }
+
+    /* TABELLE */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+    table thead tr { background-color: #3b2f1e; color: #f5f0e8; }
+    table thead th {
+      padding: 10px 14px;
+      text-align: left;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    table tbody tr:nth-child(odd)  { background-color: #faf7f0; }
+    table tbody tr:nth-child(even) { background-color: #f0ebe0; }
+    table tbody tr:hover           { background-color: #eef4e6; }
+    table tbody td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #e8dfc8;
+      color: #4a3a25;
+    }
+    table tbody td:first-child {
+      font-weight: 700;
+      color: #7a9e5f;
+      white-space: nowrap;
+    }
+
+    /* FOTO-GALERIE */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .photo-item {
+      background-color: #e8dfc8;
+      border: 1px solid #d6c9a8;
+      border-radius: 3px;
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+    }
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Beschriftung nur sichtbar wenn KEIN Bild geladen */
+    .photo-item .caption {
+      display: none;
+    }
+    .photo-item img[src=""],
+    .photo-item img:not([src]) {
+      display: none;
+    }
+    /* Fallback-Label für leere Slots (kein Bild) */
+    .photo-item.no-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .photo-item.no-image .caption {
+      display: block;
+      font-size: 11px;
+      color: #7a6a50;
+      font-style: italic;
+      padding: 12px;
+    }
+
+    /* LAGE */
+    .lage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .lage-item {
+      background-color: #3b2f1e;
+      color: #f5f0e8;
+      border-radius: 4px;
+      padding: 16px;
+      text-align: center;
+    }
+    .lage-item .dist {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      color: #a8c07a;
+    }
+    .lage-item .dest { font-size: 13px; font-weight: 700; margin: 4px 0; }
+    .lage-item .desc { font-size: 11px; color: #c8b99a; }
+
+    /* ZUSTANDSHINWEISE */
+    .hinweis-box {
+      background-color: #fdf6ec;
+      border: 1px solid #e0c898;
+      border-radius: 4px;
+      padding: 20px 24px;
+    }
+    .hinweis-box ul li::before { content: '▸'; color: #c8962a; }
+    .hinweis-box ul li { border-bottom: 1px dotted #e8d8b0; }
+
+    /* KONTAKT */
+    .kontakt {
+      background-color: #3b2f1e;
+      color: #f5f0e8;
+      padding: 36px 48px;
+      text-align: center;
+      border-top: 5px solid #7a9e5f;
+    }
+    .kontakt h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      color: #a8c07a;
+      border: none;
+      padding: 0;
+      margin-bottom: 8px;
+    }
+    .kontakt .name {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .kontakt .contact-items {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .kontakt .contact-item { font-size: 15px; color: #e8dfc8; }
+    .kontakt .contact-item span { color: #a8c07a; margin-right: 6px; }
+    .kontakt .privat {
+      display: inline-block;
+      border: 1px solid #7a9e5f;
+      color: #a8c07a;
+      padding: 6px 20px;
+      border-radius: 3px;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* TRENNLINIE */
+    .divider {
+      border: none;
+      border-top: 1px solid #d6c9a8;
+      margin: 0 48px;
+    }
+
+    /* DRUCK */
+    @media print {
+      body { background: white; }
+      .page { box-shadow: none; border: none; margin: 0; max-width: 100%; }
+      .hero-item { height: 220px; }
+    }
+
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="label">Exposé · Privatverkauf · Provisionsfrei</div>
+    <h1>Historischer Vierseitenhof<br>im Niederen Fläming</h1>
+    <div class="subtitle">Herbersdorf 19 · 14913 Niederer Fläming · Brandenburg</div>
+    <div class="price-bar">250.000 €
+      <span>Provisionsfrei · Privatverkauf</span>
+    </div>
+  </header>
+
+  <!-- HERO-GRID: 2/3 links + 1/3 rechts -->
+  <div class="hero-grid">
+    <div class="hero-item">
+      <img src="foto_frontansicht.jpg" alt="Frontansicht Straßenseite">
+    </div>
+    <div class="hero-item">
+      <img src="foto_eingang.jpg" alt="Eingangsbereich">
+    </div>
+  </div>
+
+  <!-- INHALT -->
+  <div class="content">
+
+    <!-- SCHNELLÜBERSICHT -->
+    <section>
+      <h2>Auf einen Blick</h2>
+      <div class="overview-grid">
+        <div class="item">
+          <div class="key">Objektart</div>
+          <div class="val">Resthof / Vierseitenhof</div>
+        </div>
+        <div class="item">
+          <div class="key">Baujahr</div>
+          <div class="val">1936 (Massivbau)</div>
+        </div>
+        <div class="item">
+          <div class="key">Wohnfläche</div>
+          <div class="val">183 m² (EG 137 m² + DG 45 m²)</div>
+        </div>
+        <div class="item">
+          <div class="key">Ausbaureserve</div>
+          <div class="val">90 m² (Dachgeschoss)</div>
+        </div>
+        <div class="item">
+          <div class="key">Zimmer</div>
+          <div class="val">8 Zimmer (EG: 5 · DG: 3)</div>
+        </div>
+        <div class="item">
+          <div class="key">Keller</div>
+          <div class="val">135 m² (vollunterkellert)</div>
+        </div>
+        <div class="item">
+          <div class="key">Grundstück</div>
+          <div class="val">ca. 8.000 m²</div>
+        </div>
+        <div class="item">
+          <div class="key">Heizung</div>
+          <div class="val">Fröling S4 Turbo (2024) + Backup Öl</div>
+        </div>
+        <div class="item">
+          <div class="key">Heizkosten</div>
+          <div class="val">ca. 500 €/Jahr (Erfahrungswert)</div>
+        </div>
+        <div class="item">
+          <div class="key">Internet</div>
+          <div class="val">DSL 250 Mbit/s, Glasfaser geplant</div>
+        </div>
+        <div class="item">
+          <div class="key">Energieausweis</div>
+          <div class="val">2022 vorhanden, neuer in Bearbeitung</div>
+        </div>
+        <div class="item">
+          <div class="key">Kaufpreis</div>
+          <div class="val">250.000 € · Provisionsfrei</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOTOGALERIE -->
+    <section>
+      <h2>Impressionen</h2>
+      <div class="photo-grid">
+        <div class="photo-item">
+          <img src="foto_hof_sommer.jpg" alt="Innenhof im Sommer">
+        </div>
+        <div class="photo-item">
+          <img src="foto_wohnkueche.jpg" alt="Wohnküche EG">
+        </div>
+        <div class="photo-item">
+          <img src="foto_innenhof_kinder.jpg" alt="Innenhof mit Sandkasten">
+        </div>
+        <div class="photo-item">
+          <img src="foto_schlafzimmer.jpg" alt="Schlafzimmer EG">
+        </div>
+        <div class="photo-item">
+          <img src="foto_scheune.jpg" alt="Große Scheune">
+        </div>
+        <div class="photo-item">
+          <img src="foto_dachgeschoss.jpg" alt="Dachgeschoss Ausbaureserve">
+        </div>
+        <div class="photo-item">
+          <img src="foto_zimmer_dg.jpg" alt="Zimmer Dachgeschoss">
+        </div>
+        <div class="photo-item">
+          <img src="foto_sofaecke.jpg" alt="Sofaecke in der großen Wohnküche">
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- DAS HAUPTHAUS -->
+    <section>
+      <h2>Das Haupthaus</h2>
+      <p>Das Gebäude wurde 1936 massiv errichtet und kontinuierlich instand
+      gehalten. Ein umfassendes Sanierungsprogramm wurde 2022 abgeschlossen:
+      Komplettierung der Elektrik, Aufarbeitung aller Dielenböden, Neuverputz
+      der Innenwände und Dämmung des Dachgeschosses.</p>
+
+      <div class="highlight-box">
+        <h3>🌿 Schadstoffarme und naturnahe Sanierung (2022)</h3>
+        <p>Bei der Renovierung wurde konsequent auf natürliche und
+        emissionsarme Materialien gesetzt:</p>
+        <ul>
+          <li>Alle Innenwände neu verputzt mit
+              <strong>Otterbein Reinkalkputz</strong></li>
+          <li>Ausschließlich gestrichen mit
+              <strong>Sumpfkalkfarbe (Kreidezeit)</strong> –
+              angenehmes Raumklima, Gerüche werden natürlich abgebaut</li>
+          <li>Böden behandelt mit <strong>Osmo Hartwachsöl</strong> –
+              strapazierfähig, diffusionsoffen, ohne lösungsmittelhaltige
+              Lacke</li>
+          <li>Dämmung im DG: 50 % <strong>Perlite</strong> (Vulkangestein),
+              Rest Mineralwolle – <strong>kein Styropor</strong></li>
+          <li>Boden- und Trittschalldämmung:
+              <strong>Blähton</strong> oder <strong>Perlite</strong></li>
+          <li>Nordwand EG: vollständig von innen mit
+              <strong>Kalziumsilikatplatten</strong> gedämmt
+              (feuchtigkeitsregulierend, schimmelhemmend)</li>
+        </ul>
+        <p style="margin-top:10px; font-style:italic; color:#4a6e30;">
+          Ideal für Familien mit Kindern, Allergiker und alle, die Wert
+          auf ein gesundes Wohnklima legen.
+        </p>
+      </div>
+
+      <h3>Erdgeschoss (ca. 137 m²)</h3>
+      <ul>
+        <li><strong>Wohnküche ca. 45 m²</strong> mit Holzofen (Sichtscheibe)
+            und historischer gemauerter Kochmaschine („Kochhexe", 1936)</li>
+        <li>4 weitere Zimmer; zwei über Schiebetür verbunden
+            (optional trennbar)</li>
+        <li>Helle Räume mit Dielenböden, frisch verputzt</li>
+        <li>Eingangsbereich: ursprüngliche Holztür mit Oberlicht,
+            gefliester Sockelbereich</li>
+        <li>Jedes Zimmer mit Schornsteinanschluss für eigenen Ofen</li>
+        <li>Historischer Kachelofen von 1936 in Betrieb</li>
+      </ul>
+
+      <h3>Dachgeschoss (45 m² ausgebaut + 90 m² Reserve)</h3>
+      <ul>
+        <li>3 Zimmer: 1 Gästezimmer (direkt am Flur), 2 Zimmer mit
+            Durchgang (aktuell Büro)</li>
+        <li>Ausbaureserve 90 m² – Rohbau, gut zugänglich,
+            Dämmung bereits vorbereitet</li>
+      </ul>
+
+      <h3>Keller (ca. 135 m²)</h3>
+      <ul>
+        <li>Vollunterkellert, Deckenhöhe ca. 2,10 m</li>
+        <li>Meiste Räume trocken; zwei Räume mit leichter Restfeuchte</li>
+        <li>Geeignet als Lager-, Bastel- oder Hobbyraum</li>
+      </ul>
+    </section>
+
+    <hr class="divider">
+
+    <!-- HEIZUNG -->
+    <section>
+      <h2>Heizung &amp; Energieversorgung</h2>
+      <ul>
+        <li><strong>Primärheizung:</strong> Holzvergaser Fröling S4 Turbo
+            (2024) mit Pufferspeicher</li>
+        <li><strong>Backup:</strong> Ölheizung (1997) mit ca. 2.000 L
+            Füllmenge – betriebsbereit</li>
+        <li><strong>Kachelofen</strong> (1936) funktionsfähig</li>
+        <li><strong>Holzvorrat</strong> für mindestens 7 Jahre
+            wird mitverkauft</li>
+        <li><strong>Heizkosten:</strong> ca. 500 €/Jahr
+            (eigener Erfahrungswert)</li>
+        <li>Anschluss an zentrale Wasser- und Abwasserleitung vorhanden</li>
+        <li>Zwei funktionstüchtige Brunnen auf dem Grundstück
+            (Brauchwasser)</li>
+      </ul>
+
+      <h3>Internet &amp; Infrastruktur</h3>
+      <ul>
+        <li>DSL bis 250 Mbit/s – 3 Jahre Homeoffice ohne einen Ausfall</li>
+        <li>Glasfaser-Verteiler 20 m vor dem Haus,
+            Anschluss durch Telekom geplant</li>
+        <li>Mobilfunk eingeschränkt;
+            Telefonie über Festnetz / WLAN-Call möglich</li>
+      </ul>
+
+      <h3>Energieausweis</h3>
+      <p>Ein Energieausweis vom Jahr 2022 liegt vor. Da seitdem umfangreiche
+      Sanierungsmaßnahmen durchgeführt wurden, wird aktuell ein neuer
+      Energieausweis erstellt. Dieser wird Interessenten vor der
+      Besichtigung vorgelegt.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- MODERNISIERUNG -->
+    <section>
+      <h2>Modernisierungshistorie</h2>
+      <table>
+        <thead>
+          <tr><th>Jahr</th><th>Maßnahme</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1936</td>
+              <td>Bau des Haupthauses, Kachelofen eingebaut</td></tr>
+          <tr><td>1993</td>
+              <td>Bad, Zählerschrank, Fenster EG erneuert</td></tr>
+          <tr><td>1996</td>
+              <td>Neue Dacheindeckung – noch heute sehr guter Zustand</td></tr>
+          <tr><td>1997</td>
+              <td>Ölheizung eingebaut</td></tr>
+          <tr><td>2000</td>
+              <td>Hofseitige Fassade verputzt und gestrichen,
+                  Sockel verfugt</td></tr>
+          <tr><td>2001</td>
+              <td>Straßenseitige Fenster erneuert</td></tr>
+          <tr><td>2006</td>
+              <td>Fassade neu gestrichen</td></tr>
+          <tr><td>2011</td>
+              <td>Blitzschutzanlage (Haus + Torhaus)</td></tr>
+          <tr><td>2022</td>
+              <td>Elektrik komplett, Dielen, Reinkalkputz,
+                  Sumpfkalkfarbe, DG-Dämmung:
+                  Perlite/Mineralwolle, EG-Dämmung-Nordwand: Kalziumsilikat</td></tr>
+          <tr><td>2024</td>
+              <td>Holzvergaser Fröling S4 Turbo installiert</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <hr class="divider">
+
+    <!-- GRUNDSTÜCK -->
+    <section>
+      <h2>Grundstück &amp; Nebengebäude</h2>
+      <p>Das ca. 8.000 m² große Grundstück gliedert sich in Wohnbereich,
+      Gartenland und Wiese. Der Innenhof ist durch die Bebauung geschützt
+      und ruhig gelegen. Sackgassenlage direkt am Waldrand.</p>
+      <ul>
+        <li>Natürlicher Teich mit drei alten Eichen</li>
+        <li>Zwei funktionstüchtige Brunnen (Brauchwasser)</li>
+        <li>Gartenland mit Hochbeeten und Obstgehölzen</li>
+        <li>Geschützter Innenhof – sicher für Kinder</li>
+      </ul>
+
+      <div class="photo-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+        <div class="photo-item">
+          <img src="foto_teich.jpg" alt="Natürlicher Teich">
+        </div>
+        <div class="photo-item">
+          <img src="foto_garten.jpg" alt="Gartenland">
+        </div>
+        <div class="photo-item">
+          <img src="foto_nebengebaeude.jpg" alt="Nebengebäude">
+        </div>
+      </div>
+
+      <h3>Nebengebäude (alle in der Substanz intakt)</h3>
+      <ol>
+        <li><strong>Große Scheune (ca. 250 m²)</strong> – zwei
+            traktorentaugliche Tore, hohe Decken,
+            intakte Asbestplatten auf dem Dach</li>
+        <li><strong>Stall-/Torhaus (ca. 200 m²)</strong> – drei Garagen
+            (zwei zugänglich), Abstellflächen</li>
+        <li><strong>Futterküche</strong> – historischer Backofen
+            (leichter Instandsetzungsbedarf), Waschkessel</li>
+        <li><strong>Alter Schweinestall (ca. 90 m²)</strong> –
+            nicht mehr nutzbar</li>
+        <li><strong>Unterstellhalle</strong> – Holzlager
+            (Vorrat ca. 7 Jahre)</li>
+      </ol>
+    </section>
+
+    <hr class="divider">
+
+    <!-- LAGE -->
+    <section>
+      <h2>Lage &amp; Anbindung</h2>
+      <p>Herbersdorf liegt im ruhigen ländlichen Raum des Niederen Flämings,
+      umgeben von ausgedehnten Wäldern und Forstwegen. Die Hauslage in
+      einer Sackgasse garantiert keinen Durchgangsverkehr.</p>
+      <div class="lage-grid">
+        <div class="lage-item">
+          <div class="dist">2 km</div>
+          <div class="dest">Hohenseefeld</div>
+          <div class="desc">Post · Krämerladen</div>
+        </div>
+        <div class="lage-item">
+          <div class="dist">10 km</div>
+          <div class="dest">Dahme/Mark</div>
+          <div class="desc">Rewe · LIDL · Baumarkt · Sport</div>
+        </div>
+        <div class="lage-item">
+          <div class="dist">35 km</div>
+          <div class="dest">Jüterbog</div>
+          <div class="desc">Bahnhof · RE/RB nach Berlin &amp; Wittenberg</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+<!--     
+    <section>
+      <h2>Zustandshinweise</h2>
+      <div class="hinweis-box">
+        <ul>
+          <li>Küche funktional, Erneuerung in den nächsten Jahren empfohlen</li>
+          <li>Bad im Anbau: einfacher, ländlicher Standard</li>
+          <li>Rübenkeller im großen Stall eingestürzt</li>
+          <li>Alter Schweinestall nicht mehr nutzbar</li>
+          <li>Zwei Garagentore eingeschränkt
+              (eines defekt, eines nicht zugänglich)</li>
+          <li>DG-Ausbaureserve im Rohzustand (90 m²)</li>
+          <li>Zwei Kellerräume mit leichter Restfeuchte</li>
+          <li>„Kochhexe": ein Stein defekt,
+              vor Inbetriebnahme zu ersetzen</li>
+          <li>Energieausweis (2022) vorhanden,
+              aktueller in Bearbeitung</li>
+        </ul>
+      </div>
+    </section>
+
+  </div> -->
+
+  <!-- KONTAKT -->
+  <div class="kontakt">
+    <h2>Kontakt &amp; Besichtigung</h2>
+    <div class="name">Familie Schwarzbach</div>
+    <div class="contact-items">
+      <div class="contact-item">
+        <span>📧</span>haus.herbersdorf@freenet.de
+      </div>
+      <div class="contact-item">
+        <span>📱</span>0151 61 44 53 09
+      </div>
+    </div>
+    <div class="privat">Privatverkauf · Provisionsfrei</div>
+  </div>
+
+</div>
+</body>
+</html>
